@@ -379,8 +379,8 @@ const App = () => {
               <Grid>
                 { /*カレンダー*/ }
                 <Box
-                 height={370}
-                 width={305}
+                 height={315}
+                 width={600}
                  my={2}
                  display="flex"
                  alignItems="center"
@@ -388,9 +388,9 @@ const App = () => {
                  p={2}
                  sx={{ border: '2px solid grey' }}
                  position="absolute"
-                 top={63}
+                 top={225}
                  right={1}
-                 left={70}
+                 left={1220}
                  >
                 
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -401,37 +401,25 @@ const App = () => {
                       />
                   </DemoContainer>
                 </LocalizationProvider>
-                
+                { /*クイックパネル*/ }
+                  <Box
+                  height={150}
+                  width={60}
+                  >
+                  <FormGroup>
+                      <FormControlLabel control={<Switch defaultChecked />} label="Label" />
+                      <FormControlLabel required control={<Switch />} label="Required" />
+                      <FormControlLabel disabled control={<Switch />} label="Disabled" />
+                    </FormGroup>
+                  </Box>
                 </Box>
               </Grid>
 
-              <Grid>
-                <Box
-                  height={370}
-                  width={305}
-                  my={4}
-                  display="flex"
-                  alignItems="center"
-                  gap={4}
-                  p={2}
-                  sx={{ border: '2px solid grey' }}
-                  position="absolute"
-                  top={49}
-                  right={1}
-                  left={465}
-                >
-                  <FormGroup>
-                    <Typography>This page is control panel. You can change a variety of modes</Typography>
-                    <FormControlLabel control={<Switch defaultChecked />} label="Label" />
-                    <FormControlLabel required control={<Switch />} label="Required" />
-                    <FormControlLabel disabled control={<Switch />} label="Disabled" />
-                  </FormGroup>
-                </Box>
-              </Grid>
+              
 
 
               { /*説明書き*/ }
-              <Box component="section" sx={{ p: 2, border: '1px dashed grey', position: "absolute", top: 500,left: 68,right: 1130,bottom: 59 }}>
+              <Box component="section" sx={{ p: 2, border: '1px dashed grey', position: "absolute", top: 80,left: 68,right: 1130,bottom: 135 }}>
                 Introduce this application
               </Box>
 
@@ -511,47 +499,8 @@ const App = () => {
               </Grid>
 
               
-              {/* リスト */}
-              <Grid>
-                <Box
-                height={250}
-                width={600}
-                my={1}
-                display="flex"
-                alignItems="center"
-                gap={4}
-                p={2}
-                sx={{ border: '2px solid grey' }}
-                position="absolute"
-                top={264}
-                left={1220}
-                >
-                    <Box sx={{ width: '100%', maxWidth: 11000, bgcolor: 'background.paper'}}>
-                      <List>
-                          <ListItem disablePadding>
-                            <ListItemButton>
-                                  <ListItemText primary="投稿１" />
-                            </ListItemButton>
-                          </ListItem>
-                        <ListItem disablePadding>
-                          <ListItemButton>
-                            <ListItemText primary="投稿２" />
-                          </ListItemButton>
-                        </ListItem>
-                        <ListItem disablePadding>
-                          <ListItemButton>
-                            <ListItemText primary="投稿３" />
-                          </ListItemButton>
-                        </ListItem>
-                        <ListItem disablePadding>
-                          <ListItemButton component="a" href="#simple-list">
-                            <ListItemText primary="投稿４" />
-                          </ListItemButton>
-                        </ListItem>
-                      </List>
-                  </Box>
-                </Box>
-              </Grid>
+             
+              
               { /* クイックトランスファー */}
               <Grid>
                 <Box
