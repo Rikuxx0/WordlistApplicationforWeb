@@ -50,6 +50,8 @@ import ArchiveIcon from '@mui/icons-material/Archive';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
+//React Routingのセット
+import { Link } from 'react-router-dom'
 
 
 //Drawerの仕組み
@@ -157,7 +159,7 @@ function refreshMessages(): MessageExample[] {
   }
 
 
-const App = () => {
+const Dashboard = () => {
 
   //Drawerの中の値の定義
   const theme = useTheme();
@@ -346,10 +348,10 @@ const App = () => {
             <ListItem key={text} disablePadding>
               <ListItemButton >
                 <ListItemIcon>
-                {icons[index] === 'home' && <HomeOutlinedIcon />}
-                {icons[index] === 'test' && <EditRoundedIcon />}
-                {icons[index] === 'list' && <ChecklistRtlRoundedIcon />}
-                {icons[index] === 'reminder' && <NotificationsActiveRoundedIcon />}
+                <Link to='./App'>{icons[index] === 'home' && <HomeOutlinedIcon /> }</Link>
+                <Link to='./test/Test'>{icons[index] === 'test' && <EditRoundedIcon />}</Link>
+                <Link to='./list/List'>{icons[index] === 'list' && <ChecklistRtlRoundedIcon />}</Link>
+                <Link to='./reminder/Reminder'>{icons[index] === 'reminder' && <NotificationsActiveRoundedIcon />}</Link>
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
@@ -362,9 +364,9 @@ const App = () => {
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  {othericons[index] === 'account' && <AccountCircleIcon />}
-                  {othericons[index] === 'setting' && <SettingsIcon />}
-                  {othericons[index] === 'HowToUse' && <HelpIcon />}
+                  <Link to='./account/Account'>{othericons[index] === 'account' && <AccountCircleIcon />}</Link>
+                  <Link to='./setting/Setting'>{othericons[index] === 'setting' && <SettingsIcon />}</Link>
+                  <Link to='./HelpToUse/HelpToUse'>{othericons[index] === 'HowToUse' && <HelpIcon />}</Link>
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
@@ -601,4 +603,5 @@ const messageExamples: readonly MessageExample[] = [
   },
 ];
 
-export default App
+export default Dashboard;
+
