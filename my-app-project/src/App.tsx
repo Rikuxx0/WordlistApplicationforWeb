@@ -159,7 +159,7 @@ function refreshMessages(): MessageExample[] {
   }
 
 
-const Dashboard = () => {
+const App = () => {
 
   //Drawerの中の値の定義
   const theme = useTheme();
@@ -346,12 +346,12 @@ const Dashboard = () => {
         <List>
         {['ホーム','テストする', 'My単語リスト', 'リマインダー'].map((text, index) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton >
+              <ListItemButton component={ Link } to={`/${icons[index]}`}>
                 <ListItemIcon>
-                <Link to='./App'>{icons[index] === 'home' && <HomeOutlinedIcon /> }</Link>
-                <Link to='./test/Test'>{icons[index] === 'test' && <EditRoundedIcon />}</Link>
-                <Link to='./list/List'>{icons[index] === 'list' && <ChecklistRtlRoundedIcon />}</Link>
-                <Link to='./reminder/Reminder'>{icons[index] === 'reminder' && <NotificationsActiveRoundedIcon />}</Link>
+                  {icons[index] === 'home' && <HomeOutlinedIcon /> }
+                  {icons[index] === 'test' && <EditRoundedIcon />}
+                  {icons[index] === 'list' && <ChecklistRtlRoundedIcon />}
+                  {icons[index] === 'reminder' && <NotificationsActiveRoundedIcon />}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
@@ -362,11 +362,11 @@ const Dashboard = () => {
         <List>
           {['アカウント', '設定', '使い方'].map((text, index) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton>
+              <ListItemButton component={Link} to={`/${othericons[index]}`}>
                 <ListItemIcon>
-                  <Link to='./account/Account'>{othericons[index] === 'account' && <AccountCircleIcon />}</Link>
-                  <Link to='./setting/Setting'>{othericons[index] === 'setting' && <SettingsIcon />}</Link>
-                  <Link to='./HelpToUse/HelpToUse'>{othericons[index] === 'HowToUse' && <HelpIcon />}</Link>
+                    {othericons[index] === 'account' && <AccountCircleIcon />}
+                    {othericons[index] === 'setting' && <SettingsIcon />}
+                    {othericons[index] === 'HowToUse' && <HelpIcon />}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
@@ -603,5 +603,5 @@ const messageExamples: readonly MessageExample[] = [
   },
 ];
 
-export default Dashboard;
+export default App;
 
