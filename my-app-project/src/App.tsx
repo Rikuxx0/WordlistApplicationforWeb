@@ -51,7 +51,14 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 //React Routingのセット
-import { Link } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
+import Testpage from './Testpage.tsx';
+import Listpage from './Listpage.tsx';
+import Reminderpage from './Reminderpage.tsx'
+import Accountpage from './Accountpage.tsx'
+import Settingpage from './Settingpage.tsx'
+import HelpToUsepage from './HelpToUsepage.tsx'
+import Nopage from './Nopage.tsx'
 
 
 //Drawerの仕組み
@@ -159,7 +166,7 @@ function refreshMessages(): MessageExample[] {
   }
 
 
-const App = () => {
+const App: React.FC = () => {
 
   //Drawerの中の値の定義
   const theme = useTheme();
@@ -602,6 +609,17 @@ const messageExamples: readonly MessageExample[] = [
     person: '/static/images/avatar/1.jpg',
   },
 ];
+
+<Routes>
+    <Route path='/' element={<App />}/>
+    <Route path='/Testpage.tsx' element={<Testpage />} />
+    <Route path='/Listpage.tsx' element={<Listpage />} />
+    <Route path='/Reminderpage.tsx' element={<Reminderpage />} />
+    <Route path='/Accountpage.tsx' element={<Accountpage />} />
+    <Route path='/settingpage.tsx' element={<Settingpage />} />
+    <Route path='/HelpToUsepage.tsx' element={<HelpToUsepage />} />
+    <Route path='/Nopage.tsx' element={<Nopage />} />
+</Routes>
 
 export default App;
 
