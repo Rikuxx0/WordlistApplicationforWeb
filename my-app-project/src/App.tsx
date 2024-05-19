@@ -20,13 +20,14 @@ const App: React.FC = () => {
         { /*React Router*/ }
           <Routes>
               <Route path='/' element={<Dashboard />}/>
+              <Route path='/Dashboard' element={<Dashboard />}/>
               <Route path='/Testpage' element={<Testpage />} />
               <Route path='/Listpage' element={<Listpage />} />
               <Route path='/Reminderpage' element={<Reminderpage />} />
               <Route path='/Accountpage' element={<Accountpage />} />
               <Route path='/settingpage' element={<Settingpage />} />
               <Route path='/HelpToUsepage' element={<HelpToUsepage />} />
-              <Route path='/Nopage' element={<Nopage />} />
+              <Route path='*' element={<Nopage />} />
           </Routes>
       </div>
     </BrowserRouter>
