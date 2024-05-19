@@ -95,8 +95,8 @@ const Header = () => {
     };
 
     //Listのiconを配列化
-    const icons = ['home', 'test', 'list', 'reminder'];
-    const othericons = ['account', 'setting','HowToUse'];
+    const icons = ['Dashboard', 'Testpage', 'Listpage', 'Reminderpage'];
+    const othericons = ['Accountpage', 'Settingpage','HelpToUsepage'];
 
     return(
         <div>
@@ -143,10 +143,10 @@ const Header = () => {
                         <ListItem key={text} disablePadding>
                         <ListItemButton component={ Link } to={`/${icons[index]}`}>
                             <ListItemIcon>
-                            {icons[index] === 'home' && <HomeOutlinedIcon /> }
-                            {icons[index] === 'test' && <EditRoundedIcon />}
-                            {icons[index] === 'list' && <ChecklistRtlRoundedIcon />}
-                            {icons[index] === 'reminder' && <NotificationsActiveRoundedIcon />}
+                            {icons[index] === 'Dashboard' && <HomeOutlinedIcon /> }
+                            {icons[index] === 'Testpage' && <EditRoundedIcon />}
+                            {icons[index] === 'Listpage' && <ChecklistRtlRoundedIcon />}
+                            {icons[index] === 'Reminderpage' && <NotificationsActiveRoundedIcon />}
                             </ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItemButton>
@@ -159,9 +159,9 @@ const Header = () => {
                         <ListItem key={text} disablePadding>
                         <ListItemButton component={Link} to={`/${othericons[index]}`}>
                             <ListItemIcon>
-                                {othericons[index] === 'account' && <AccountCircleIcon />}
-                                {othericons[index] === 'setting' && <SettingsIcon />}
-                                {othericons[index] === 'HowToUse' && <HelpIcon />}
+                                {othericons[index] === 'Accountpage' && <AccountCircleIcon />}
+                                {othericons[index] === 'Settingpage' && <SettingsIcon />}
+                                {othericons[index] === 'HelpToUsepage' && <HelpIcon />}
                             </ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItemButton>

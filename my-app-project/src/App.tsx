@@ -2,14 +2,14 @@ import * as React from 'react'
 import Header from './components/Header'
 //React Routingのセット
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Dashboard from './components/Dashboard.tsx';
-import Testpage from './components/Testpage.tsx';
+import Dashboard from './components/Dashboard';
+import Testpage from './components/Testpage';
 import Listpage from './components/Listpage.tsx';
-import Reminderpage from './components/Reminderpage.tsx';
-import Accountpage from './components/Accountpage.tsx';
-import Settingpage from './components/Settingpage.tsx';
-import HelpToUsepage from './components/HelpToUsepage.tsx';
-import Nopage from './components/Nopage.tsx';
+import Reminderpage from './components/Reminderpage';
+import Accountpage from './components/Accountpage';
+import Settingpage from './components/Settingpage';
+import HelpToUsepage from './components/HelpToUsepage';
+import Nopage from './components/Nopage';
 
 const App: React.FC = () => {
   return (
@@ -19,14 +19,14 @@ const App: React.FC = () => {
 
         { /*React Router*/ }
           <Routes>
-              <Route path='/components/Dashboard.tsx' element={<Dashboard />}/>
-              <Route path='/components/Testpage.tsx' element={<Testpage />} />
-              <Route path='/components/Listpage.tsx' element={<Listpage />} />
-              <Route path='/components/Reminderpage.tsx' element={<Reminderpage />} />
-              <Route path='/components/Accountpage.tsx' element={<Accountpage />} />
-              <Route path='/components/settingpage.tsx' element={<Settingpage />} />
-              <Route path='/components/HelpToUsepage.tsx' element={<HelpToUsepage />} />
-              <Route path='/components/Nopage.tsx' element={<Nopage />} />
+              <Route path='/' element={<Dashboard />}/>
+              <Route path='/Testpage' element={<Testpage />} />
+              <Route path='/Listpage' element={<Listpage />} />
+              <Route path='/Reminderpage' element={<Reminderpage />} />
+              <Route path='/Accountpage' element={<Accountpage />} />
+              <Route path='/settingpage' element={<Settingpage />} />
+              <Route path='/HelpToUsepage' element={<HelpToUsepage />} />
+              <Route path='/Nopage' element={<Nopage />} />
           </Routes>
       </div>
     </BrowserRouter>

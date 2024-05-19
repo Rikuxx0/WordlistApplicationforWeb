@@ -1,8 +1,10 @@
-
+import { CssBaseline } from "@mui/material"
 
 const Testpage = () => {
   return (
-    <div>Testpage
+    <div>
+      <CssBaseline>Testpage</CssBaseline>
+      
       
     </div>
   )
