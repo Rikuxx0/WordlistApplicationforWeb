@@ -2,14 +2,14 @@ import * as React from 'react'
 import Header from './components/Header'
 //React Routingのセット
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Dashboard from './components/Dashboard';
-import Testpage from './components/Testpage';
-import Listpage from './components/Listpage.tsx';
-import Reminderpage from './components/Reminderpage';
-import Accountpage from './components/Accountpage';
-import Settingpage from './components/Settingpage';
-import HelpToUsepage from './components/HelpToUsepage';
-import Nopage from './components/Nopage';
+import Dashboard from './pagecomponents/Dashboard.tsx';
+import Testpage from './pagecomponents/Testpage.tsx';
+import Listpage from './pagecomponents/Listpage.tsx';
+import Reminderpage from './pagecomponents/Reminderpage.tsx';
+import Accountpage from './pagecomponents/Accountpage.tsx';
+import Settingpage from './pagecomponents/Settingpage.tsx';
+import HelpToUsepage from './pagecomponents/HelpToUsepage.tsx';
+import Nopage from './pagecomponents/Nopage.tsx';
 
 const App: React.FC = () => {
   return (
