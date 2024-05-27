@@ -1,9 +1,7 @@
 import Box from '@mui/material/Box';
 import Tablelist from '../components/Tablelist';
 import Typography from '@mui/material/Typography';
-import Fab from '@mui/material/Fab';
-import AddIcon from '@mui/icons-material/Add';
-
+import Listdrawer from '../components/Listdrawer';
 
 const Listpage = () => {
   return (
@@ -22,7 +20,7 @@ const Listpage = () => {
       <Typography variant='h1'  position={'relative'} top={1} right={1} left={450} bottom={1}>Word Setting</Typography>
       <Box
         height={530}
-        width={800}
+        width={900}
         my={4}
         display="flex"
         alignItems="center"
@@ -37,21 +35,10 @@ const Listpage = () => {
 
       >
         <Tablelist />
+        <Listdrawer />
       </Box>
     </Box>
-    <Box 
-      sx={{ '& > :not(style)': { m: 1 } }}
-      display="flex"
-      position={'relative'}
-      top={1}
-      right={1}
-      left={1800}
-      bottom={1}
-    >
-      <Fab color="primary" aria-label="add">
-        <AddIcon />
-      </Fab>
-    </Box>
+          
     </>
   )
 }
