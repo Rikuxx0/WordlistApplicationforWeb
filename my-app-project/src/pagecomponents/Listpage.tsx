@@ -10,8 +10,8 @@ const Listpage = () => {
        height={750}
        width={1400}
        sx={{ border: '2px solid grey' }}
-       position={'relative'}
-       top={1}
+       position={'absolute'}
+       top={100}
        left={260}
        right={1}
        bottom={1}
