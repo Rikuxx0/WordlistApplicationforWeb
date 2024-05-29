@@ -4,12 +4,12 @@ import List from '@mui/material/List';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
-import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+
 
 //クイックトランスファーの仕組み
 function not(a: readonly number[], b: readonly number[]) {
@@ -33,8 +33,10 @@ const Quicktransfer = () => {
   const [left, setLeft] = React.useState<readonly number[]>([0, 1, 2, 3]);
   const [right, setRight] = React.useState<readonly number[]>([4, 5, 6, 7]);
 
-  const leftChecked = intersection(checked, left);
+
   const rightChecked = intersection(checked, right);
+  const leftChecked = intersection(checked, left);
+  
 
   const handleToggle = (value: number) => () => {
     const currentIndex = checked.indexOf(value);
@@ -123,7 +125,7 @@ const Quicktransfer = () => {
                   }}
                 />
               </ListItemIcon>
-              <ListItemText id={labelId} primary={`List item ${value + 1}`} />
+              <TextField id="outlined-basic" label="元の単語" variant="outlined" size='small'/>
             </ListItemButton>
           );
         })}
@@ -134,7 +136,6 @@ const Quicktransfer = () => {
     return (
     <>
         { /* クイックトランスファー */}
-              
                     <Grid container spacing={2} justifyContent="center" alignItems="center">
                         <Grid item>{customList('Choices', left)}</Grid>
                         <Grid item>
@@ -163,8 +164,6 @@ const Quicktransfer = () => {
                         </Grid>
                         <Grid item>{customList('Chosen', right)}</Grid>
                       </Grid>
-                
-            
     </>
   )
 }
