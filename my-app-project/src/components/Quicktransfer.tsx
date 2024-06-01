@@ -31,7 +31,9 @@ const Quicktransfer = () => {
     //クイックトランスファーの定義
   const [checked, setChecked] = React.useState<readonly number[]>([]);
   const [left, setLeft] = React.useState<readonly number[]>([0, 1, 2, 3]);
-  const [right, setRight] = React.useState<readonly number[]>([4, 5, 6, 7]);
+  const [right, setRight] = React.useState<readonly number[]>([]);
+  const [textFields, setTextFields] = React.useState<{ [key: number]: string }>({});
+
 
 
   const rightChecked = intersection(checked, right);
@@ -74,6 +76,13 @@ const Quicktransfer = () => {
     setChecked(not(checked, rightChecked));
   };
 
+  const handleTextFieldChange = (key: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTextFields({
+      ...textFields,
+      [key]: event.target.value,
+    });
+  };
+
   const customList = (title: React.ReactNode, items: readonly number[]) => (
     <Card>
       <CardHeader
@@ -110,23 +119,32 @@ const Quicktransfer = () => {
           const labelId = `transfer-list-all-item-${value}-label`;
 
           return (
-            <ListItemButton
-              key={value}
-              role="listitem"
-              onClick={handleToggle(value)}
-            >
-              <ListItemIcon>
+            <ListItemButton>
+              <ListItemIcon
+                key={value}
+                role="listitem"
+                onClick={handleToggle(value)}
+              >
                 <Checkbox
                   checked={checked.indexOf(value) !== -1}
                   tabIndex={-1}
                   disableRipple
                   inputProps={{
                     'aria-labelledby': labelId,
-                  }}
+                  }
+                }
                 />
               </ListItemIcon>
-              <TextField id="outlined-basic" label="元の単語" variant="outlined" size='small'/>
+               <TextField 
+                id={`outlined-basic-${value}`}
+                label="元の単語"
+                variant="outlined"
+                size="small"
+                value={textFields[value] || ''}
+                onChange={handleTextFieldChange(value)}
+               />
             </ListItemButton>
+            
           );
         })}
       </List>
