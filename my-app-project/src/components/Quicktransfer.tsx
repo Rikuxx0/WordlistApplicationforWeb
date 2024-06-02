@@ -9,6 +9,9 @@ import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+
 
 
 //クイックトランスファーの仕組み
@@ -182,6 +185,22 @@ const Quicktransfer = () => {
                         </Grid>
                         <Grid item>{customList('Chosen', right)}</Grid>
                       </Grid>
+                      <Box position={'absolute'} top={270} right={1} left={1} bottom={1}>
+                        <Button
+                        size='large' 
+                        color='primary'
+                        sx={{ 
+                          boxShadow: 'none',
+                          border: 'none',
+                          outline: 'none'
+                        }}
+                        onClick={() => {
+                          alert('リストを１個追加するための関数');
+                        }}
+                        >
+                          <AddCircleIcon fontSize="large"/>
+                        </Button>
+                      </Box>
     </>
   )
 }
