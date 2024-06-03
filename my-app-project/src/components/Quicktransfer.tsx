@@ -30,10 +30,12 @@ function not(a: readonly number[], b: readonly number[]) {
   
 
 const Quicktransfer = () => {
-    
-    //クイックトランスファーの定義
+  
+   
+
+  //クイックトランスファーの定義
   const [checked, setChecked] = React.useState<readonly number[]>([]);
-  const [left, setLeft] = React.useState<readonly number[]>([0, 1, 2, 3]);
+  const [left, setLeft] = React.useState<readonly number[]>([1,2,3,4]);
   const [right, setRight] = React.useState<readonly number[]>([]);
   const [textFields, setTextFields] = React.useState<{ [key: number]: string }>({});
 
@@ -153,7 +155,18 @@ const Quicktransfer = () => {
       </List>
     </Card>
   );
-  
+
+  //リストを１個追加するための関数
+    const addList = () => {
+      // 新しい配列を作成して状態を更新
+      setLeft([...left, left.length + 1]);
+    };
+    //リストを１個追加するための関数
+    const removeList = () => {
+      //　新しい配列を作成して状態を更新
+      setLeft([...left, left.length - 1]);
+    }
+
     return (
     <>
         { /* クイックトランスファー */}
@@ -194,9 +207,7 @@ const Quicktransfer = () => {
                           border: 'none',
                           outline: 'none'
                         }}
-                        onClick={() => {
-                          alert('リストを１個追加するための関数');
-                        }}
+                        onClick={addList}
                         >
                           <AddCircleIcon fontSize="large"/>
                         </Button>
