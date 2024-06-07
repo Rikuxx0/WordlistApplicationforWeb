@@ -230,7 +230,7 @@ const Dashboard = () => {
               {/*クイックトランスファー*/}
               <Grid>
                 <Box
-                height={330}
+                height={340}
                 width={600}
                 my={4}
                 display="flex"

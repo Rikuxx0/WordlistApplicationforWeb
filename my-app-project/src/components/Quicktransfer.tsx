@@ -11,6 +11,7 @@ import Divider from '@mui/material/Divider';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 
 
 
@@ -142,7 +143,7 @@ const Quicktransfer = () => {
               </ListItemIcon>
                <TextField 
                 id={`outlined-basic-${value}`}
-                label="元の単語"
+                label="単語"
                 variant="outlined"
                 size="small"
                 value={textFields[value] || ''}
@@ -161,11 +162,11 @@ const Quicktransfer = () => {
       // 新しい配列を作成して状態を更新
       setLeft([...left, left.length + 1]);
     };
-    //リストを１個追加するための関数
+    //リストを１個減らするための関数
     const removeList = () => {
       //　新しい配列を作成して状態を更新
-      setLeft([...left, left.length - 1]);
-    }
+      setLeft(left.slice(0, -1));
+    };
 
     return (
     <>
@@ -198,7 +199,9 @@ const Quicktransfer = () => {
                         </Grid>
                         <Grid item>{customList('Chosen', right)}</Grid>
                       </Grid>
-                      <Box position={'absolute'} top={270} right={1} left={1} bottom={1}>
+                      
+                      
+                      <Box position={'absolute'} top={220} right={1} left={1} bottom={1}>
                         <Button
                         size='large' 
                         color='primary'
@@ -209,7 +212,23 @@ const Quicktransfer = () => {
                         }}
                         onClick={addList}
                         >
-                          <AddCircleIcon fontSize="large"/>
+                           <AddCircleIcon fontSize="large"/>
+                        </Button>
+                      </Box>
+                      
+                      
+                      <Box position={'absolute'} top={270} right={1} left={1} bottom={1}>
+                        <Button
+                        size='large' 
+                        color='primary'
+                        sx={{ 
+                          boxShadow: 'none',
+                          border: 'none',
+                          outline: 'none'
+                        }}
+                        onClick={removeList}
+                        >
+                         <RemoveCircleIcon fontSize="large"/>
                         </Button>
                       </Box>
     </>
