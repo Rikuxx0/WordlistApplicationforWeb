@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Header from './components/Header'
+import Header from './components/Header.tsx'
 //React Routingのセット
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Dashboard from './pagecomponents/Dashboard.tsx';
