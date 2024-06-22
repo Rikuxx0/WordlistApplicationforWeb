@@ -7,7 +7,7 @@ export default defineConfig ({
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:1323/",
+        target: "https://script.google.com/macros/s/AKfycbxtg3CHW9gSIRlED0lIhYXfUr2sF7YIRqSrH-Gzu4nJX1l8cplKIFpWiJGbQJSll-DC/exec?text=Hello&source=en&target=ja",
         changeOrigin: true,
       },
     },
