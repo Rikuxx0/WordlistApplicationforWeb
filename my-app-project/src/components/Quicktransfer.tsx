@@ -70,7 +70,7 @@ const Quicktransfer = () => {
     return response.data.translatedText;
   };
 
-  const addword = async () => {
+  const addword = async (key: number) => {
     if (textFields[key].trim() === '') return;
     const translation = await translateWord(textFields[key]);
     const newWord: Word= {original: textFields[key], translation };
