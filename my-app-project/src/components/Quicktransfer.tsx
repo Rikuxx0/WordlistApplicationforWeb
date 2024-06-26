@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect }from 'react';
+import axios from 'axios';
 import Grid from '@mui/material/Grid';
 import List from '@mui/material/List';
 import Card from '@mui/material/Card';
@@ -13,6 +14,12 @@ import Box from '@mui/material/Box';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 
+//言葉の定義
+interface Word {
+  original: string;
+  translation: string;
+  
+}
 
 
 //クイックトランスファーの仕組み
@@ -32,13 +39,47 @@ function not(a: readonly number[], b: readonly number[]) {
 
 const Quicktransfer = () => {
   
-   
 
-  //クイックトランスファーの定義
+
+  //クイックトランスファーと文字の定義
   const [checked, setChecked] = React.useState<readonly number[]>([]);
   const [left, setLeft] = React.useState<readonly number[]>([1,2,3,4]);
   const [right, setRight] = React.useState<readonly number[]>([]);
+  const [words, setWords] = useState<Word[]>([]);
   const [textFields, setTextFields] = React.useState<{ [key: number]: string }>({});
+
+  //ここだけクイックトランスファーの仕組み外　入力した文字をjson形式で格納
+  useEffect(() => {
+    const storedWords = localStorage.getItem('flashcards');
+    if (storedWords) {
+      setWords(JSON.parse(storedWords));
+    }
+  }, []);
+
+  
+  const translateWord = async (text: string) => {
+    const url = 'https://libretranslate.de/translate';
+    const response = await axios.post(url, {
+      q: text,
+      source: 'ja', // 翻訳元の言語コード（ここでは日本語）
+      target: 'en', // 翻訳先の言語コード（ここでは英語）
+      format: 'text'
+    }, {
+      headers: { 'Content-Type': 'application/json' }
+    });
+    return response.data.translatedText;
+  };
+
+  const addword = async () => {
+    if (textFields[key].trim() === '') return;
+    const translation = await translateWord(textFields[key]);
+    const newWord: Word= {original: textFields[key], translation };
+    const updatedWords = [...words, newWord];
+    setWords(updatedWords);
+    localStorage.setItem('flashcards', JSON.stringify(updatedWords));
+    setTextFields((prevTextFields) => ({ ...prevTextFields, [key]: '' }));
+  };
+
 
 
 
@@ -83,10 +124,10 @@ const Quicktransfer = () => {
   };
 
   const handleTextFieldChange = (key: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTextFields({
-      ...textFields,
+    setTextFields((prevTextFields) => ({
+      ...prevTextFields,
       [key]: event.target.value,
-    });
+    }));
   };
 
   const customList = (title: React.ReactNode, items: readonly number[]) => (
@@ -148,6 +189,7 @@ const Quicktransfer = () => {
                 size="small"
                 value={textFields[value] || ''}
                 onChange={handleTextFieldChange(value)}
+                onBlur={() => addword(value)} 
                />
             </ListItemButton>
             
@@ -167,6 +209,9 @@ const Quicktransfer = () => {
       //　新しい配列を作成して状態を更新
       setLeft(left.slice(0, -1));
     };
+
+    
+
 
     return (
     <>
