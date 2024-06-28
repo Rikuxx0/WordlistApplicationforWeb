@@ -34,7 +34,7 @@ const Listpage = () => {
         bottom={100}
 
       >
-        <Tablelist />
+          <Tablelist />
         <Listdrawer />
       </Box>
     </Box>

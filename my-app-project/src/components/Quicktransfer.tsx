@@ -18,7 +18,6 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 interface Word {
   original: string;
   translation: string;
-  
 }
 
 
@@ -58,16 +57,25 @@ const Quicktransfer = () => {
 
   
   const translateWord = async (text: string) => {
+    try {
     const url = 'https://libretranslate.de/translate';
-    const response = await axios.post(url, {
+    const response = await axios.post(
+      url,
+     {
       q: text,
       source: 'ja', // 翻訳元の言語コード（ここでは日本語）
       target: 'en', // 翻訳先の言語コード（ここでは英語）
       format: 'text'
-    }, {
-      headers: { 'Content-Type': 'application/json' }
-    });
+      }, 
+      {
+        headers: { 'Content-Type': 'application/json' }
+      }
+    );
     return response.data.translatedText;
+  } catch (error: any) {
+    console.error('Error translating word:', error.response ? error.response.data : error.message);
+    return '';
+    }
   };
 
   const addword = async (key: number) => {
@@ -80,7 +88,7 @@ const Quicktransfer = () => {
     setTextFields((prevTextFields) => ({ ...prevTextFields, [key]: '' }));
   };
 
-
+ //keyに問題あり
 
 
   const rightChecked = intersection(checked, right);
@@ -189,7 +197,7 @@ const Quicktransfer = () => {
                 size="small"
                 value={textFields[value] || ''}
                 onChange={handleTextFieldChange(value)}
-                onBlur={() => addword(value)} 
+                onBlur={() => addword(value)} //カーソルが離れたときに機能する
                />
             </ListItemButton>
             
