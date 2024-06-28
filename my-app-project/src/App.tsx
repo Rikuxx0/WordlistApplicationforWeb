@@ -10,6 +10,7 @@ import Accountpage from './pagecomponents/Accountpage.tsx';
 import Settingpage from './pagecomponents/Settingpage.tsx';
 import HelpToUsepage from './pagecomponents/HelpToUsepage.tsx';
 import Nopage from './pagecomponents/Nopage.tsx';
+import Exampage  from './pagecomponents/Exampage.tsx';
 
 const App: React.FC = () => {
   return (
@@ -27,6 +28,7 @@ const App: React.FC = () => {
               <Route path='/Accountpage' element={<Accountpage />} />
               <Route path='/settingpage' element={<Settingpage />} />
               <Route path='/HelpToUsepage' element={<HelpToUsepage />} />
+              <Route path='/Exampage' element={<Exampage />} />
               <Route path='*' element={<Nopage />} />
           </Routes>
       </div>

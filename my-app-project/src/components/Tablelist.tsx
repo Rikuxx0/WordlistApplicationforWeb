@@ -23,33 +23,25 @@ import { visuallyHidden } from '@mui/utils';
 
 interface Data {
   id: number;
-  calories: number;
-  carbs: number;
-  fat: number;
   name: string;
-  protein: number;
+  translatedname: string;
 }
 
 function createData(
   id: number,
   name: string,
-  calories: number,
-  fat: number,
-  carbs: number,
-  protein: number,
+  translatedname: string
+  
 ): Data {
   return {
     id,
     name,
-    calories,
-    fat,
-    carbs,
-    protein,
+    translatedname
   };
 }
 
 const rows = [
-  createData(1, 'Cupcake', 305, 3.7, 67, 4.3)
+  createData(1, 'apple', 'りんご')
 ];
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
@@ -107,7 +99,7 @@ const headCells: readonly HeadCell[] = [
     label: '英語',
   },
   {
-    id: 'calories',
+    id: 'translatedname',
     numeric: true,
     disablePadding: false,
     label: '日本語',
@@ -227,7 +219,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
 }
 export default function EnhancedTable() {
   const [order, setOrder] = React.useState<Order>('asc');
-  const [orderBy, setOrderBy] = React.useState<keyof Data>('calories');
+  const [orderBy, setOrderBy] = React.useState<keyof Data>('translatedname');
   const [selected, setSelected] = React.useState<readonly number[]>([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
@@ -349,10 +341,7 @@ export default function EnhancedTable() {
                     >
                       {row.name}
                     </TableCell>
-                    <TableCell align="right">{row.calories}</TableCell>
-                    <TableCell align="right">{row.fat}</TableCell>
-                    <TableCell align="right">{row.carbs}</TableCell>
-                    <TableCell align="right">{row.protein}</TableCell>
+                    <TableCell align="right">{row.translatedname}</TableCell>
                   </TableRow>
                 );
               })}

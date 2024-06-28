@@ -8,8 +8,8 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
-import CommentIcon from '@mui/icons-material/Comment';
+import  Exampage from './Exampage';
+
 
 const Testpage = () => {
   const [checked, setChecked] = React.useState([0]);
@@ -69,7 +69,12 @@ const Testpage = () => {
             })}
           </List>
           <Stack spacing={2} direction="column" position={'absolute'} top={450} left={880} bottom={1}>
-            <Button variant="contained">テストする</Button>
+            <Button 
+            variant="contained"
+          
+            >
+              テストする
+              </Button>
           </Stack>
       </Box>
 
