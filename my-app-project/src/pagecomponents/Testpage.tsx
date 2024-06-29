@@ -8,7 +8,6 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
-import  Exampage from './Exampage';
 
 
 const Testpage = () => {
@@ -71,7 +70,7 @@ const Testpage = () => {
           <Stack spacing={2} direction="column" position={'absolute'} top={450} left={880} bottom={1}>
             <Button 
             variant="contained"
-          
+            href='./Exampage'
             >
               テストする
               </Button>
