@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Grid, Card, CardContent, Typography, Box } from '@mui/material';
+import { Button, Grid, Card, CardContent, Typography, Box, Paper, Stack } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import axios from 'axios';
 
 // 単語の型定義
@@ -57,15 +58,53 @@ const Exampage = () => {
     }
   }, [words]);
 
+  //カードのスタイル
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
+
   
   return (
-    <Box>
-      <Typography variant="h4" gutterBottom>
-        単語帳アプリ
-      </Typography>
-      <Typography variant="h6">
-        正解: {score.correct} 不正解: {score.incorrect}
-      </Typography>
+    <Box
+      height={700}
+      width={1900}
+      my={4}
+      display="flex"
+      alignItems="center"
+      gap={4}
+      p={2}
+      sx={{ border: '2px solid grey' }}
+    >
+      <Box
+            height={700}
+            width={500}
+            my={4}
+            display="flex"
+            alignItems="center"
+            gap={4}
+            p={2}
+      >
+        <Typography variant="h4" gutterBottom>
+          単語帳アプリ
+        </Typography>
+      </Box>
+      <Box
+            height={700}
+            width={500}
+            my={4}
+            display="flex"
+            alignItems="center"
+            gap={4}
+            p={2}
+      >
+        <Typography variant="h6">
+          正解: {score.correct} 不正解: {score.incorrect}
+        </Typography>
+      </Box>
       <Grid container spacing={2}>
         {currentWords.map((word, index) => (
           <Grid item xs={6} sm={3} key={index}>
@@ -90,10 +129,55 @@ const Exampage = () => {
             </Card>
           </Grid>
         ))}
+        <Box sx={{ width: '80%' }}>
+          <Stack spacing={4}>
+            <Item>
+              <Button>button 1</Button>
+            </Item>
+            <Item>
+              <Button>button 2</Button>
+            </Item>
+            <Item>
+              <Button >button 3</Button>
+            </Item>
+            <Item>
+              <Button>button 4</Button>
+            </Item>
+          </Stack>
+        </Box>
+
       </Grid>
-      <Button variant="contained" color="primary" onClick={displayNextWords}>
-        次の4枚
-      </Button>
+      <Box
+            height={700}
+            width={500}
+            my={4}
+            display="flex"
+            alignItems="center"
+            gap={4}
+            p={2}
+      >
+        <Button variant="contained" color="primary" onClick={displayNextWords}>
+          次の4枚
+        </Button>
+      </Box>
+      <Box
+            height={20}
+            width={500}
+            my={4}
+            display="flex"
+            alignItems="center"
+            gap={4}
+            p={2}
+            position='absolute'
+            top={800}
+            right={1}
+            left={1800}
+            
+      >
+        <Button variant="contained" color="primary" href='./Testpage'>
+          終了
+        </Button>
+      </Box>
     </Box>
   )
 }
