@@ -47,6 +47,7 @@ const Quicktransfer = () => {
   const [words, setWords] = useState<Word[]>([]);
   const [textFields, setTextFields] = React.useState<{ [key: number]: string }>({});
 
+  
   //ここだけクイックトランスファーの仕組み外　入力した文字をjson形式で格納
   useEffect(() => {
     const storedWords = localStorage.getItem('flashcards');
@@ -55,7 +56,7 @@ const Quicktransfer = () => {
     }
   }, []);
 
-  
+  //textとtextField[value]の統合しなければならない
   const translateWord = async (text: string) => {
     try {
     const url = 'https://libretranslate.de/translate';
