@@ -88,7 +88,7 @@ const Quicktransfer = () => {
     setTextFields((prevTextFields) => ({ ...prevTextFields, [key]: '' }));
   };
 
- //keyに問題あり
+ 
 
 
   const rightChecked = intersection(checked, right);
@@ -131,10 +131,12 @@ const Quicktransfer = () => {
     setChecked(not(checked, rightChecked));
   };
 
-  const handleTextFieldChange = (key: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleTextFieldChange = (key: number) => async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const originalText = event.target.value;
+    const translatedText = await translateWord(originalText);
     setTextFields((prevTextFields) => ({
       ...prevTextFields,
-      [key]: event.target.value,
+      [key]: translatedText,
     }));
   };
 
